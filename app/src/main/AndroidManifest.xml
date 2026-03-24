@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EstanciaAlzheimer">
         <activity
-            android:name=".MainActivity"
+            android:name=".AplicarInstrumentoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,6 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".PacientesActivity" />
         <activity android:name=".DetallePacienteActivity" />
-        <activity android:name=".AplicarInstrumentoActivity" />
         <activity android:name=".HistorialActivity" />
         <activity android:name=".ResultadosActivity" />
     </application>
