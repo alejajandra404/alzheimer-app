@@ -1,0 +1,58 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_paciente"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/tv_edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edad"
+            android:layout_below="@id/tv_nombre"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp" />
+
+
+        <TextView
+            android:id="@+id/tv_diagnostico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diagnostico"
+            android:layout_below="@id/tv_edad"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tv_estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/estado"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_diagnostico"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tv_cuarto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cuarto"
+            android:layout_below="@id/tv_estado"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
