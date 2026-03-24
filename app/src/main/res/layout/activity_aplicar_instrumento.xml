@@ -14,26 +14,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Santuario Clínico"
+            android:text="AURA MEDICAL"
             android:textColor="@color/primary"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginBottom="18dp" />
 
-        <!-- Ruta de navegación -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Evaluaciones  ›  Evaluación cognitiva"
-            android:textColor="@color/text_secondary"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp" />
+
 
         <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nueva evaluación&#10;cognitiva"
+            android:text="Evaluación cognitiva"
             android:textColor="@color/text_primary"
             android:textStyle="bold"
             android:textSize="24sp"
@@ -43,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Protocolo clínico estandarizado&#10;(SCAP-3)"
+            android:text="Evaluación MMSE"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:layout_marginTop="8dp"
