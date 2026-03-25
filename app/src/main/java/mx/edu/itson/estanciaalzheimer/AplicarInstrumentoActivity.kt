@@ -25,6 +25,10 @@ class AplicarInstrumentoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aplicar_instrumento)
 
+        val nombre = intent.getStringExtra("nombre")
+        val tvNombre = findViewById<TextView>(R.id.tvNombrePacienteInstrumento)
+        tvNombre.text = nombre
+
         initOptionGroups()
         setupAllSelectionGroups()
     }

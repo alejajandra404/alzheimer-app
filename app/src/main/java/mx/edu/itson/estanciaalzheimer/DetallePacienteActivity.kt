@@ -33,11 +33,15 @@ class DetallePacienteActivity : AppCompatActivity() {
         val btnAplicar = findViewById<Button>(R.id.btn_aplicar)
 
         btnHistorial.setOnClickListener {
-            startActivity(Intent(this, HistorialActivity::class.java))
+            val intent = Intent(this, HistorialActivity::class.java)
+            intent.putExtra("nombre", nombre)
+            startActivity(intent)
         }
 
         btnAplicar.setOnClickListener {
-            startActivity(Intent(this, AplicarInstrumentoActivity::class.java))
+            val intent = Intent(this, AplicarInstrumentoActivity::class.java)
+            intent.putExtra("nombre", nombre)
+            startActivity(intent)
         }
     }
 }
