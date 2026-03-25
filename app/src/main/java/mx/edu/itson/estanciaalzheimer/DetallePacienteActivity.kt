@@ -1,6 +1,8 @@
 package mx.edu.itson.estanciaalzheimer
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -27,5 +29,15 @@ class DetallePacienteActivity : AppCompatActivity() {
         tvCuarto.text = cuarto
         tvEstado.text = estado
 
+        val btnHistorial = findViewById<Button>(R.id.btn_historial)
+        val btnAplicar = findViewById<Button>(R.id.btn_aplicar)
+
+        btnHistorial.setOnClickListener {
+            startActivity(Intent(this, HistorialActivity::class.java))
+        }
+
+        btnAplicar.setOnClickListener {
+            startActivity(Intent(this, AplicarInstrumentoActivity::class.java))
+        }
     }
 }
