@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Estancia Alzheimer</string>
+    <string name="nombre_paciente">Nombre del paciente</string>
+    <string name="edad">Edad</string>
+    <string name="diagnostico">Diagnóstico</string>
+    <string name="estado">Estado</string>
+    <string name="cuarto">Cuarto</string>
+
+
+
 </resources>
