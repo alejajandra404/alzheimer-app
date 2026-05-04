@@ -1455,7 +1455,7 @@
                 android:textColorHint="@color/text_secondary"
                 android:layout_marginBottom="16dp" />
 
-        </LinearLayout>}
+        </LinearLayout>
 
         <!-- Bottom buttons -->
         <LinearLayout
@@ -1477,7 +1477,7 @@
                 android:backgroundTint="@color/white" />
 
             <Button
-                android:id="@+id/btnFinalizarEvaluación"
+                android:id="@+id/btnFinalizarEvaluacion"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
                 android:layout_weight="1"

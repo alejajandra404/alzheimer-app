@@ -1,10 +1,10 @@
 package mx.edu.itson.estanciaalzheimer
 
 data class Paciente(
-    var id: Int,
-    var nombre: String,
-    var edad: Int,
-    var diagnostico: String,
-    var cuarto: String,
-    var estado: String // "NEEDS_EVAL", "STABLE", "OBSERVATION", "RESTING"
+    var id: Int = 0,
+    var nombre: String = "",
+    var edad: Int = 0,
+    var diagnostico: String = "",
+    var cuarto: String = "",
+    var estado: String = ""
 )

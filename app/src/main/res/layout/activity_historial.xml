@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
+    android:orientation="vertical"
     android:background="#F5F7FA">
 
     <LinearLayout
@@ -25,125 +25,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="Paciente: Juan Pérez"
+            android:text="Paciente:"
             android:textSize="16sp"
             android:textColor="#475569" />
 
         <TextView
-            android:id="@+id/tvSubtituloHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
             android:text="Evaluaciones registradas"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#1E293B" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp"
-            android:elevation="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MMSE"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#0F172A" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Fecha: 20/03/2026"
-                android:textColor="#475569"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Evaluador: Dr. García"
-                android:textColor="#475569"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Puntaje: 24/30"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="#0891B2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Interpretación: Deterioro leve"
-                android:textColor="#334155"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:padding="16dp"
-            android:layout_marginBottom="12dp"
-            android:elevation="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tinetti"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#0F172A" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Fecha: 05/03/2026"
-                android:textColor="#475569"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Evaluador: Dra. López"
-                android:textColor="#475569"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Puntaje: 18/28"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="#0891B2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Interpretación: Riesgo moderado de caída"
-                android:textColor="#334155"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnVerResultados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Ver resultados y progreso" />
-
     </LinearLayout>
-</ScrollView>
+
+    <ListView
+        android:id="@+id/lv_evaluaciones"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#E2E8F0"
+        android:dividerHeight="1dp" />
+
+    <Button
+        android:id="@+id/btnVerResultados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Ver resultados y progreso" />
+
+</LinearLayout>

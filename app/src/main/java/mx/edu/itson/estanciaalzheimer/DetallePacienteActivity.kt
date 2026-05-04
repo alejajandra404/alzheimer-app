@@ -11,35 +11,30 @@ class DetallePacienteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_paciente)
 
-        val nombre = intent.getStringExtra("nombre")
-        val edad = intent.getIntExtra("edad", 0)
-        val diagnostico = intent.getStringExtra("diagnostico")
-        val cuarto = intent.getStringExtra("cuarto")
-        val estado = intent.getStringExtra("estado")
+        val bundle = intent.extras
+        val pacienteId = bundle?.getInt("id") ?: 0
+        val nombre = bundle?.getString("nombre")
+        val edad = bundle?.getInt("edad") ?: 0
+        val diagnostico = bundle?.getString("diagnostico")
+        val cuarto = bundle?.getString("cuarto")
+        val estado = bundle?.getString("estado")
 
-        val tvNombre = findViewById(R.id.tv_nombre_detalle) as TextView
-        val tvEdad = findViewById<TextView>(R.id.tv_edad_detalle)
-        val tvDiagnostico = findViewById<TextView>(R.id.tv_diagnostico_detalle)
-        val tvCuarto = findViewById<TextView>(R.id.tv_cuarto_detalle)
-        val tvEstado = findViewById<TextView>(R.id.tv_estado_detalle)
+        findViewById<TextView>(R.id.tv_nombre_detalle).text = nombre
+        findViewById<TextView>(R.id.tv_edad_detalle).text = "Edad: $edad"
+        findViewById<TextView>(R.id.tv_diagnostico_detalle).text = diagnostico
+        findViewById<TextView>(R.id.tv_cuarto_detalle).text = cuarto
+        findViewById<TextView>(R.id.tv_estado_detalle).text = estado
 
-        tvNombre.text = nombre
-        tvEdad.text = "Edad: $edad"
-        tvDiagnostico.text = diagnostico
-        tvCuarto.text = cuarto
-        tvEstado.text = estado
-
-        val btnHistorial = findViewById<Button>(R.id.btn_historial)
-        val btnAplicar = findViewById<Button>(R.id.btn_aplicar)
-
-        btnHistorial.setOnClickListener {
+        findViewById<Button>(R.id.btn_historial).setOnClickListener {
             val intent = Intent(this, HistorialActivity::class.java)
+            intent.putExtra("pacienteId", pacienteId)
             intent.putExtra("nombre", nombre)
             startActivity(intent)
         }
 
-        btnAplicar.setOnClickListener {
+        findViewById<Button>(R.id.btn_aplicar).setOnClickListener {
             val intent = Intent(this, AplicarInstrumentoActivity::class.java)
+            intent.putExtra("pacienteId", pacienteId)
             intent.putExtra("nombre", nombre)
             startActivity(intent)
         }
