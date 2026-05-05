@@ -12,6 +12,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.activity.OnBackPressedCallback
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -41,6 +43,16 @@ class PacientesActivity : AppCompatActivity() {
             intent.putExtra("estado", p.estado)
             startActivity(intent)
         }
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this@PacientesActivity, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+        })
 
         val ref = FirebaseDatabase.getInstance().getReference("pacientes")
         ref.addValueEventListener(object : ValueEventListener {
