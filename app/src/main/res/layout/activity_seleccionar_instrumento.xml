@@ -45,6 +45,7 @@
             android:layout_marginBottom="14dp">
 
             <TextView
+                android:id="@+id/tvNombreMmse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MMSE"
@@ -53,17 +54,17 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tvSubtituloMmse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mini-Mental State Examination  •  30 pts"
                 android:textColor="@color/primary"
                 android:textSize="13sp"
                 android:layout_marginTop="2dp" />
 
             <TextView
+                android:id="@+id/tvDescripcionMmse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Evalúa orientación, memoria, atención, lenguaje y habilidades visuoespaciales."
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp"
@@ -89,6 +90,7 @@
             android:layout_marginBottom="14dp">
 
             <TextView
+                android:id="@+id/tvNombreTinetti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Escala de Tinetti"
@@ -97,17 +99,17 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/tvSubtituloTinetti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Equilibrio y Marcha  •  28 pts"
                 android:textColor="@color/primary"
                 android:textSize="13sp"
                 android:layout_marginTop="2dp" />
 
             <TextView
+                android:id="@+id/tvDescripcionTinetti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Evalúa equilibrio y marcha para determinar el riesgo de caídas en adultos mayores."
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp"

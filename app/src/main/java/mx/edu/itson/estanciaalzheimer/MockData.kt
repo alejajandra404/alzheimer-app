@@ -12,8 +12,8 @@ object MockData {
     )
 
     val instrumentos = arrayListOf(
-        Instrumento(1, "MMSE",    "Mini-Mental State Examination. Evalúa orientación, memoria, atención, lenguaje y habilidades visuoespaciales.", 30),
-        Instrumento(2, "Tinetti", "Evalúa equilibrio y marcha para determinar riesgo de caídas en adultos mayores.", 28)
+        Instrumento(1, "MMSE",              "Mini-Mental State Examination", "Evalúa orientación, memoria, atención, lenguaje y habilidades visuoespaciales.", 30),
+        Instrumento(2, "Escala de Tinetti", "Equilibrio y Marcha",            "Evalúa equilibrio y marcha para determinar riesgo de caídas en adultos mayores.",     28)
     )
 
     val evaluaciones = arrayListOf(
