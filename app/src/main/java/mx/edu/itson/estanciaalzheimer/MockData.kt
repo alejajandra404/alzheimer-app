@@ -3,12 +3,12 @@ package mx.edu.itson.estanciaalzheimer
 object MockData {
 
     val pacientes = arrayListOf(
-        Paciente(1, "Beatriz Adriana Castañeda",    82, "Alzheimer Tipo 2",        "204-A", "NEEDS_EVAL"),
-        Paciente(2, "Martha Elena Solórzano",    79, "Demencia Vascular",        "112-B", "STABLE"),
-        Paciente(3, "Hortensia Figueroa", 75, "Alzheimer Leve",           "308-C", "OBSERVATION"),
-        Paciente(4, "Gregorio Téllez Girón",   88, "Alzheimer Avanzado",       "101-A", "NEEDS_EVAL"),
-        Paciente(5, "Salvador Becerra Montes", 71, "Deterioro Cognitivo Leve", "215-B", "STABLE"),
-        Paciente(6, "Filemón Quintero Delgado",   84, "Demencia Mixta",           "307-A", "RESTING")
+        Paciente(1, "Beatriz Adriana Castañeda",    "1943-09-15", "Alzheimer Tipo 2",        "204-A", "NEEDS_EVAL"),
+        Paciente(2, "Martha Elena Solórzano",       "1946-11-08", "Demencia Vascular",        "112-B", "STABLE"),
+        Paciente(3, "Hortensia Figueroa",           "1950-10-12", "Alzheimer Leve",           "308-C", "OBSERVATION"),
+        Paciente(4, "Gregorio Téllez Girón",        "1937-12-03", "Alzheimer Avanzado",       "101-A", "NEEDS_EVAL"),
+        Paciente(5, "Salvador Becerra Montes",      "1954-08-22", "Deterioro Cognitivo Leve", "215-B", "STABLE"),
+        Paciente(6, "Filemón Quintero Delgado",     "1941-07-19", "Demencia Mixta",           "307-A", "RESTING")
     )
 
     val instrumentos = arrayListOf(

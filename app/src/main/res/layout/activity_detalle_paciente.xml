@@ -112,11 +112,29 @@
             android:layout_marginBottom="8dp"/>
 
         <Button
+            android:id="@+id/btn_editar_paciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Editar paciente"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/primary"/>
+
+        <Button
             android:id="@+id/btn_aplicar"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aplicar Instrumento"/>
+            android:text="Aplicar Instrumento"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_eliminar_paciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Eliminar paciente"
+            android:backgroundTint="#DC2626"/>
 
     </LinearLayout>
 

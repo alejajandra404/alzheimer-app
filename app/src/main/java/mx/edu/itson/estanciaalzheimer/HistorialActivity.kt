@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener
 
 class HistorialActivity : AppCompatActivity() {
 
-    private val evaluaciones = ArrayList<Evaluacion>()
+    private val evaluaciones = ArrayList<Pair<String, Evaluacion>>()
     private lateinit var adaptador: EvaluacionAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class HistorialActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvPacienteHistorial).text = "Paciente: $nombre"
 
         val listview = findViewById<ListView>(R.id.lv_evaluaciones)
-        adaptador = EvaluacionAdapter(this, evaluaciones)
+        adaptador = EvaluacionAdapter(this, evaluaciones, pacienteId)
         listview.adapter = adaptador
 
         val ref = FirebaseDatabase.getInstance()
@@ -44,9 +44,9 @@ class HistorialActivity : AppCompatActivity() {
                 evaluaciones.clear()
                 for (child in snapshot.children) {
                     val evaluacion = child.getValue(Evaluacion::class.java)
-                    if (evaluacion != null) evaluaciones.add(evaluacion)
+                    if (evaluacion != null) evaluaciones.add(Pair(child.key ?: "", evaluacion))
                 }
-                evaluaciones.sortByDescending { it.fecha }
+                evaluaciones.sortByDescending { it.second.fecha }
                 adaptador.notifyDataSetChanged()
             }
 
@@ -65,7 +65,8 @@ class HistorialActivity : AppCompatActivity() {
 
     private inner class EvaluacionAdapter(
         private val contexto: Context,
-        private val lista: ArrayList<Evaluacion>
+        private val lista: ArrayList<Pair<String, Evaluacion>>,
+        private val pacienteId: Int
     ) : BaseAdapter() {
 
         override fun getCount() = lista.size
@@ -73,7 +74,7 @@ class HistorialActivity : AppCompatActivity() {
         override fun getItemId(position: Int) = position.toLong()
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val e = lista[position]
+            val (key, e) = lista[position]
             val vista = LayoutInflater.from(contexto).inflate(R.layout.item_evaluacion, null)
 
             vista.findViewById<TextView>(R.id.tv_instrumento_item).text = e.instrumento

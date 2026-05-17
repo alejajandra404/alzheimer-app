@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.activity.OnBackPressedCallback
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -37,7 +38,7 @@ class PacientesActivity : AppCompatActivity() {
             val intent = Intent(this, DetallePacienteActivity::class.java)
             intent.putExtra("id", p.id)
             intent.putExtra("nombre", p.nombre)
-            intent.putExtra("edad", p.edad)
+            intent.putExtra("fechaNacimiento", p.fechaNacimiento)
             intent.putExtra("diagnostico", p.diagnostico)
             intent.putExtra("cuarto", p.cuarto)
             intent.putExtra("estado", p.estado)
@@ -53,6 +54,10 @@ class PacientesActivity : AppCompatActivity() {
                 finish()
             }
         })
+
+        findViewById<FloatingActionButton>(R.id.fabAgregarPaciente).setOnClickListener {
+            startActivity(Intent(this, FormPacienteActivity::class.java))
+        }
 
         val ref = FirebaseDatabase.getInstance().getReference("pacientes")
         ref.addValueEventListener(object : ValueEventListener {
@@ -71,6 +76,21 @@ class PacientesActivity : AppCompatActivity() {
         })
     }
 
+    private fun calcularEdad(fechaNacimiento: String): Int {
+        return try {
+            val partes = fechaNacimiento.split("-")
+            val anio = partes[0].toInt()
+            val mes = partes[1].toInt()
+            val dia = partes[2].toInt()
+            val hoy = java.util.Calendar.getInstance()
+            var edad = hoy.get(java.util.Calendar.YEAR) - anio
+            val mesHoy = hoy.get(java.util.Calendar.MONTH) + 1
+            val diaHoy = hoy.get(java.util.Calendar.DAY_OF_MONTH)
+            if (mesHoy < mes || (mesHoy == mes && diaHoy < dia)) edad--
+            edad
+        } catch (e: Exception) { 0 }
+    }
+
     private inner class PacienteAdapter(
         private val contexto: Context,
         private val lista: ArrayList<Paciente>
@@ -86,12 +106,13 @@ class PacientesActivity : AppCompatActivity() {
 
             val nombre = vista.findViewById<TextView>(R.id.tv_nombre)
             val edad = vista.findViewById<TextView>(R.id.tv_edad)
+
             val diagnostico = vista.findViewById<TextView>(R.id.tv_diagnostico)
             val cuarto = vista.findViewById<TextView>(R.id.tv_cuarto)
             val estado = vista.findViewById<TextView>(R.id.tv_estado)
 
             nombre.text = p.nombre
-            edad.text = p.edad.toString()
+            edad.text = "${calcularEdad(p.fechaNacimiento)} años"
             diagnostico.text = p.diagnostico
             cuarto.text = p.cuarto
             estado.text = p.estado

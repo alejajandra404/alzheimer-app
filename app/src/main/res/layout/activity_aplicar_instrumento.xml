@@ -39,75 +39,16 @@
             android:text="Evaluación MMSE"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="18dp" />
-        <!-- Perfil del paciente -->
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvNombrePacienteInstrumento"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/bg_card"
-            android:padding="16dp"
-            android:layout_marginBottom="14dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Perfil del paciente"
-                android:textColor="@color/text_primary"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NOMBRE DEL PACIENTE"
-                android:textColor="@color/text_secondary"
-                android:textStyle="bold"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/tvNombrePacienteInstrumento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Elena Richardson"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FECHA DE NACIMIENTO / EDAD"
-                android:textColor="@color/text_secondary"
-                android:textStyle="bold"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="14 de mayo de 1952 (71 años)"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID DE REGISTRO"
-                android:textColor="@color/text_secondary"
-                android:textStyle="bold"
-                android:textSize="10sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#PX-99283-ER"
-                android:textColor="@color/text_primary"
-                android:textSize="15sp" />
-
-        </LinearLayout>
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="18dp" />
 
         <!-- Puntuación Cognitiva Total -->
         <LinearLayout
