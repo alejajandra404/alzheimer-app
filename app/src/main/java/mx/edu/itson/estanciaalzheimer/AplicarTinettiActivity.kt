@@ -114,6 +114,10 @@ class AplicarTinettiActivity : AppCompatActivity() {
             Toast.makeText(this, "Error: paciente no identificado", Toast.LENGTH_SHORT).show()
             return
         }
+        if (selectedScores.isEmpty()) {
+            Toast.makeText(this, "Debes responder al menos una pregunta antes de finalizar", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val total = selectedScores.values.sum()
         val fecha = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())

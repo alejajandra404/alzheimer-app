@@ -30,6 +30,10 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "Ingresa un correo válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             btnLogin.isEnabled = false
 

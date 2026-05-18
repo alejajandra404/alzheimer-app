@@ -61,12 +61,31 @@ class FormPacienteActivity : AppCompatActivity() {
             val cuarto = etCuarto.text.toString().trim()
             val estado = spinnerEstado.selectedItem.toString()
 
-            if (nombre.isEmpty() || diagnostico.isEmpty() || cuarto.isEmpty()) {
+            if (!modoEdicion) {
+                if (nombre.isEmpty() || fechaNacimientoSeleccionada.isEmpty()) {
+                    Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if (nombre.length < 5) {
+                    Toast.makeText(this, "El nombre es demasiado corto", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if (!nombre.matches(Regex("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+$"))) {
+                    Toast.makeText(this, "El nombre solo puede contener letras", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if (calcularEdad(fechaNacimientoSeleccionada) < 40) {
+                    Toast.makeText(this, "El paciente debe tener al menos 40 años", Toast.LENGTH_SHORT).show() // se supone que 40 años es la edad mínima para tener alzheimer (inicio temprano)
+                    return@setOnClickListener
+                }
+            }
+
+            if (diagnostico.isEmpty() || cuarto.isEmpty()) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (fechaNacimientoSeleccionada.isEmpty()) {
-                Toast.makeText(this, "Selecciona la fecha de nacimiento", Toast.LENGTH_SHORT).show()
+            if (diagnostico.length < 4) {
+                Toast.makeText(this, "El diagnóstico es demasiado corto", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -87,7 +106,9 @@ class FormPacienteActivity : AppCompatActivity() {
             val fecha = "%04d-%02d-%02d".format(anio, mes + 1, dia)
             fechaNacimientoSeleccionada = fecha
             btnFecha.text = fecha
-        }, anioInicial, cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
+        }, anioInicial, cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).apply {
+            datePicker.maxDate = System.currentTimeMillis()
+        }.show()
     }
 
     private fun agregarPaciente(nombre: String, fechaNacimiento: String, diagnostico: String, cuarto: String, estado: String) {
@@ -115,6 +136,21 @@ class FormPacienteActivity : AppCompatActivity() {
                 Toast.makeText(this@FormPacienteActivity, "Error de conexión", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun calcularEdad(fechaNacimiento: String): Int {
+        return try {
+            val partes = fechaNacimiento.split("-")
+            val anio = partes[0].toInt()
+            val mes = partes[1].toInt()
+            val dia = partes[2].toInt()
+            val hoy = Calendar.getInstance()
+            var edad = hoy.get(Calendar.YEAR) - anio
+            val mesHoy = hoy.get(Calendar.MONTH) + 1
+            val diaHoy = hoy.get(Calendar.DAY_OF_MONTH)
+            if (mesHoy < mes || (mesHoy == mes && diaHoy < dia)) edad--
+            edad
+        } catch (e: Exception) { 0 }
     }
 
     private fun editarPaciente(id: Int, nombre: String, fechaNacimiento: String, diagnostico: String, cuarto: String, estado: String) {
